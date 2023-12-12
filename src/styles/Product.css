@@ -1,7 +1,12 @@
-/* .product {
+ /* .product-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .product {
     border: 1px solid #ddd;
     padding: 16px;
-    margin: 16px;
     text-align: center;
   }
   
@@ -31,12 +36,10 @@
   
   .product button:hover {
     background-color: #45a049;
-  }
-   */
+  } */
+  
 
-
-
-   .product-container {
+  .product-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
@@ -46,6 +49,7 @@
     border: 1px solid #ddd;
     padding: 16px;
     text-align: center;
+    height: 100%; /* Ensure the products take the full height of the grid cell */
   }
   
   .product img {

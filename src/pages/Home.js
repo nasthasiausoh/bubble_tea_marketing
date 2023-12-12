@@ -9,6 +9,10 @@ const Home = () => {
     navigate('/products/special-drinks', { state: { fromBanner: true } });
   };
 
+  const handleViewProductsClick = () => {
+    navigate('/products');
+  };
+
   return (
     <div>
       <img className='xmas-banner'
@@ -20,7 +24,7 @@ const Home = () => {
         <div className='homepage-title'>
           <h3>Discover a Delightful Variety of Bubble Tea Flavors at Home!</h3>
           <p> <i>Explore our menu and find your favorite!</i></p>
-          <button>View our Products Here</button>
+          <button onClick={handleViewProductsClick}>View our Products Here</button>
         </div>
       
     </div>
