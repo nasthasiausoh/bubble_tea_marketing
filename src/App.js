@@ -22,6 +22,7 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [registeredUsers, setRegisteredUsers] = useState([]);
+  
 
   const handleSignUp = (userData) => {
     // Store the user information in local storage

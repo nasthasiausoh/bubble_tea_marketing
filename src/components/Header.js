@@ -89,7 +89,8 @@ const Header = ({ cart, setCart }) => {
     <div className="header-wrapper">
       <header>
         <div className="logo">
-          <Link to="/">TAPioca</Link>
+          <Link to="/">
+            <b>TAP</b>ioca</Link>
         </div>
         
           <ul>

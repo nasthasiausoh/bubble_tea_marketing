@@ -15,13 +15,14 @@
     justify-content: space-between;
     align-items: center;
     height: 5rem;
+    font-size: 2.8rem;
   }
   
   .logo a {
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
-    font-weight: bold;
+    /* font-weight: bold; */
   }
   
   .nav {
@@ -35,7 +36,7 @@
     padding: 0;
     display: flex;
   }
-  
+ 
   ul li {
     margin-right: 20px;
   }
@@ -51,7 +52,7 @@
   }
 
   a:hover {
-    color: #a2d2ff;
+    font-size: 1.5rem;
   }
 
   ul li:hover {
