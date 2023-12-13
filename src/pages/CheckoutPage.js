@@ -1,37 +1,6 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const CheckoutPage = ({ cart, setCart }) => {
-//   const handleCheckout = () => {
-//     // Clear the cart after successful checkout
-//     setCart([]);
-//   };
-
-//   return (
-//     <div>
-//       <h2>Checkout Page</h2>
-//       <p>Review your order:</p>
-//       <ul>
-//         {cart.map((item) => (
-//           <li key={item.id}>
-//             {item.name} - £{(item.price * item.quantity).toFixed(2)} (
-//             {item.quantity} {item.quantity > 1 ? 'units' : 'unit'})
-//           </li>
-//         ))}
-//       </ul>
-//       <button onClick={handleCheckout}>Confirm Order</button>
-//       <Link to="/products">
-//             <button>No, Continue Shopping</button>
-//           </Link>
-//     </div>
-//   );
-// };
-
-// export default CheckoutPage;
-
-// CheckoutPage.js
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import '../styles/CheckoutPage.css'
 
 const CheckoutPage = ({ cart, setCart, user }) => {
   const navigate = useNavigate();
@@ -57,11 +26,13 @@ const CheckoutPage = ({ cart, setCart, user }) => {
     }
   };
 
+  const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
   return (
-    <div>
-      <h2>Checkout Page</h2>
-      <p>Review your order:</p>
-      <ul>
+    <div className='checkout-page'>
+      <h2 id='checkout-page-title'>Checkout Page</h2>
+      <p id='review-order'>Review your order:</p>
+      <ul className='checkout-page-item-list'>
         {cart.map((item) => (
           <li key={item.id}>
             {item.name} - £{(item.price * item.quantity).toFixed(2)} (
@@ -69,10 +40,14 @@ const CheckoutPage = ({ cart, setCart, user }) => {
           </li>
         ))}
       </ul>
-      <button onClick={handleCheckout}>Confirm Order</button>
-      <Link to="/products">
-        <button>No, Continue Shopping</button>
-      </Link>
+      <p> <b> Total Cost: £{cartTotal.toFixed(2)} </b> </p>
+      <div className='checkout-buttons'>
+        <Link to="/products">
+          <button>No, Continue Shopping</button>
+        </Link>
+        <button id='confirm-order' onClick={handleCheckout}>Confirm Order</button>
+
+      </div>
     </div>
   );
 };

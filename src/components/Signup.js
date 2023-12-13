@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/Signup.css'
+
 
 const Signup = ({ onSignUp }) => {
   const [firstname, setFirstname] = useState('');
@@ -27,7 +30,7 @@ const Signup = ({ onSignUp }) => {
   };
 
   return (
-    <div>
+    <div className='signup'>
       <h2>Sign Up To TAPioca</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -68,6 +71,11 @@ const Signup = ({ onSignUp }) => {
         <br />
         <button type="submit">Sign Up</button>
       </form>
+
+      <p>
+        Already have an account? <Link to="/login" id='login-here'>Login here</Link>.
+      </p>
+    
     </div>
   );
 };

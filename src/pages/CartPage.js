@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/CartPage.css';
+
 
 const CartPage = ({ cart, removeFromCart }) => {
   const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <div>
-      <h2>Your Cart</h2>
+    <div className='my-cart-page'>
+      <h2 id='my-cart'>My Cart</h2>
 
       {cart.length === 0 ? (
         <p>Your cart is empty. <Link to="/products">Browse products</Link></p>
       ) : (
         <div>
-          <ul>
+          <ul className='cart-item-list'>
             {cart.map((item) => (
               <li key={item.id}>
                 {item.name} - £{(item.price * item.quantity).toFixed(2)} (
@@ -22,10 +24,10 @@ const CartPage = ({ cart, removeFromCart }) => {
             ))}
           </ul>
 
-          <p>Total Cost: £{cartTotal.toFixed(2)}</p>
+          <p> <b> Total Cost: £{cartTotal.toFixed(2)} </b> </p>
 
           <Link to="/checkout">
-            <button>Proceed to Checkout</button>
+            <button id='checkout-button'>Proceed to Checkout</button>
           </Link>
           <Link to="/products">
             <button>Continue Shopping</button>

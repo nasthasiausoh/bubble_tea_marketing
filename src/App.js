@@ -14,6 +14,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import Login from './components/Login';
 import Footer from './components/Footer';
 import './App.css'; // Importing the CSS file
+import Signup from './components/Signup';
 
 
 const App = () => {
@@ -189,7 +190,7 @@ const App = () => {
         />
 
         <Routes>
-          <Route
+          {/* <Route
             path="/"
             element={
               <Home
@@ -198,8 +199,8 @@ const App = () => {
                 removeFromCart={removeFromCart}
               />
             }
-          />
-          <Route path="/products" element={
+          /> */}
+          <Route path="/" element={
           <ProductPage 
             productsData={productsData} 
             addToCart={addToCart} 
@@ -209,7 +210,7 @@ const App = () => {
 
           {/* Add a route for the Special Drinks category */}
           <Route
-            path="/products/special-drinks"
+            path="/special-drinks"
             element={
             <ProductPage 
             productsData={productsData} 
@@ -221,7 +222,7 @@ const App = () => {
           
           <Route
             path="/signup"
-            element={<SignupPage onSignUp={handleSignUp} />}
+            element={<Signup onSignUp={handleSignUp} />}
           />
           <Route
               path="/login"
@@ -240,8 +241,8 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-      
-      <Footer />
+{/*       
+      <Footer /> */}
     </Router>
     </AuthProvider>
   );
