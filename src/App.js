@@ -12,6 +12,9 @@ import BuyPage from './pages/BuyPage';
 import NotFound from './pages/NotFound';
 import { AuthProvider } from './contexts/AuthContext';
 import Login from './components/Login';
+import Footer from './components/Footer';
+import './App.css'; // Importing the CSS file
+
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -237,6 +240,8 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      
+      <Footer />
     </Router>
     </AuthProvider>
   );
