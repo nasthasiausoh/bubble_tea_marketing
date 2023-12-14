@@ -24,7 +24,27 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>TAPioca Bubble Tea</title>
+    
+     <!-- Zeta script -->
+  <script>
+    (function() {
+      var SITEID = 'partner-dev-tap-cxm';
+      (function(b, t, r, a, i, n) {
+        b['bt'] = b['bt'] || function() {
+          (b['_bt'] = b['_bt'] || []).push(arguments);
+        },
+        i = t.createElement(r),
+        n = t.getElementsByTagName(r)[0];
+        i.async = 1;
+        i.src = a;
+        n.parentNode.insertBefore(i, n);
+      })(
+        window, document, 'script', 'https://cdn.boomtrain.com/p13n/' + SITEID + '/p13n.min.js'
+      );
+      bt('initialize', SITEID, { externalIds: { zync: '96d8021c-68c9-4db0-8a67-d852e51e949b:1675772676.7032254' } });
+    })();
+  </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

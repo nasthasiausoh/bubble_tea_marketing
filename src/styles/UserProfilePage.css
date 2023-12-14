@@ -1,0 +1,33 @@
+.my-account-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+}
+
+#update-button {
+    background-color: #cdb4db;
+    color: white;
+    padding: 8px 16px;
+    margin-bottom: 0.8rem;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 16px;
+    height: 2rem;
+  }
+  
+  #update-button:hover {
+    background-color: #ffafcc;
+    }
+
+#welcome-user {
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.my-account-page p {
+    font-size: 1.4rem;
+}

@@ -72,6 +72,19 @@
     display: flex;
     justify-content: center;
   }
+
+  #logout-button {
+    border-radius: 16px;
+    height: 1.6rem;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+  }
+
+  #logout-button:hover {
+    cursor: pointer;
+
+  }
   
 /* Hamburger menu icon styles */
 .menu-icon {

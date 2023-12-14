@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Signup.css'
-
+import { bt, trackSignedUpEvent } from '../zetaTracking';
 
 const Signup = ({ onSignUp }) => {
   const [firstname, setFirstname] = useState('');
@@ -11,7 +11,7 @@ const Signup = ({ onSignUp }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!firstname || !lastname || !username || !email || !password || !birthday) {
@@ -19,8 +19,20 @@ const Signup = ({ onSignUp }) => {
       return;
     }
 
+    // Call the onSignUp prop to handle user registration
     onSignUp({ firstname, lastname, username, email, password });
 
+    // Track the signed-up event with Zeta
+    try {
+      // Use the globally defined bt function
+      bt('track', 'signed_up', { email });
+
+      // You can add additional logic after tracking the event if needed
+    } catch (error) {
+      console.error('Error tracking signed-up event:', error);
+    }
+
+    // Clear form fields
     setFirstname('');
     setLastname('');
     setUsername('');
