@@ -29,9 +29,6 @@ const Header = ({ cart, setCart }) => {
             <li>
               <Link to="/" onClick={toggleMenu}>Home</Link>
             </li>
-            {/* <li>
-              <Link to="/products" onClick={toggleMenu}>Our Products</Link>
-            </li> */}
             <li>
               <Link to="/cart" onClick={toggleMenu}>My Cart</Link>
             </li>

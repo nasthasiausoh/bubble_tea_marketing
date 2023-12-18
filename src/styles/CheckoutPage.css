@@ -1,7 +1,6 @@
 .checkout-page-item-list {
     display: flex;
     flex-direction: column;
-    /* margin-top: 1%; */
     font-size: 1.2rem;
     
 }

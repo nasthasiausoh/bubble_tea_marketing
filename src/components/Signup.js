@@ -10,6 +10,7 @@ const Signup = ({ onSignUp }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [optIn, setOptIn] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const Signup = ({ onSignUp }) => {
     }
 
     // Call the onSignUp prop to handle user registration
-    onSignUp({ firstname, lastname, username, email, password });
+    onSignUp({ firstname, lastname, username, email, password, birthday, optIn});
 
     // Track the signed-up event with Zeta
     try {
@@ -39,6 +40,7 @@ const Signup = ({ onSignUp }) => {
     setEmail('');
     setPassword('');
     setBirthday('');
+    setOptIn(false);
   };
 
   return (
@@ -81,6 +83,21 @@ const Signup = ({ onSignUp }) => {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br />
+
+        <label>
+          <input
+            type='checkbox'
+            checked={optIn}
+            onChange={() => setOptIn(!optIn)} />
+            Opt-in to personalized emails about our fantastic TAPioca products. 
+        </label>
+        <p>See our Privacy Policy for more details or to opt-out at any time.
+
+<br></br>
+add a checkbox here. if they do not check the box then they cannot submit Please contact me via email
+<br></br>
+
+By clicking Complete account, I agree that I have read and accepted the Terms of Use and Privacy Policy.</p>
         <button type="submit">Sign Up</button>
       </form>
 

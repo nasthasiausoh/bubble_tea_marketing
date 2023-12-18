@@ -4,8 +4,6 @@ import Slider from 'react-slick';
 import Product from '../components/Product';
 import '../styles/ProductPage.css';
 import { useNavigate } from 'react-router-dom';
-// import ZetaGlobalTag from '../components/ZetaGlobalTag';
-// import ZetaConversionTag from '../components/ZetaConversionTag';
 
 const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart }) => {
   const location = useLocation();
@@ -57,8 +55,6 @@ const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart })
   
   return (
     <div className="product-page">
-      {/* <ZetaGlobalTag /> */}
-  
       {/* <img className="xmas-banner"
         src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/christmas-sale-special-promo-design-template-9062ed0d63d2d1b07223328c3a84a67f_screen.jpg?ts=1669596450"
         alt="Christmas Sale Banner"
@@ -87,7 +83,6 @@ const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart })
           </Slider>
         </div>
       ))}
-      {/* <ZetaConversionTag/> */}
     </div>
   );
 };

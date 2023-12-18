@@ -24,6 +24,7 @@ const UserProfilePage = () => {
               <p> <b> Full Name: </b> <i>{capitalizeFirstLetter(user.firstname)} {capitalizeFirstLetter(user.lastname)} </i> <button id='update-button'>Update</button></p> 
               <p> <b> Username: </b> <i>{user.username} </i> <button id='update-button'>Update</button></p>
               <p> <b> Email Address: </b> <i>{user.email} </i><button id='update-button'>Update</button></p>
+              <p> <b> Want to leave TAPioca? </b> <button id='delete-button'>Delete My Account</button></p>
             </div>
         
         ) : (
