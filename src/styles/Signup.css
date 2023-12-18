@@ -53,3 +53,17 @@ height: 2.8rem;
 .signup button:hover {
 background-color: green;
 }
+
+
+.checkbox-opt-in-notice {
+    display: flex;
+    flex-direction: row;
+    width: 30rem;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-opt-in-notice > input{
+    width: 2rem;
+}

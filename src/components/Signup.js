@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Signup.css'
-import { bt, trackSignedUpEvent } from '../zetaTracking';
 
 const Signup = ({ onSignUp }) => {
   const [firstname, setFirstname] = useState('');
@@ -24,14 +23,17 @@ const Signup = ({ onSignUp }) => {
     onSignUp({ firstname, lastname, username, email, password, birthday, optIn});
 
     // Track the signed-up event with Zeta
-    try {
-      // Use the globally defined bt function
-      bt('track', 'signed_up', { email });
+  //   try {
+  //     // Use the globally defined bt function
+  //     bt('track', 
+  //  'signed_up', 
+  //  {email: 'user@example.com'}
+  // );
 
-      // You can add additional logic after tracking the event if needed
-    } catch (error) {
-      console.error('Error tracking signed-up event:', error);
-    }
+  //     // You can add additional logic after tracking the event if needed
+  //   } catch (error) {
+  //     console.error('Error tracking signed-up event:', error);
+  //   }
 
     // Clear form fields
     setFirstname('');
@@ -84,20 +86,17 @@ const Signup = ({ onSignUp }) => {
         </label>
         <br />
 
-        <label>
-          <input
-            type='checkbox'
-            checked={optIn}
-            onChange={() => setOptIn(!optIn)} />
-            Opt-in to personalized emails about our fantastic TAPioca products. 
-        </label>
-        <p>See our Privacy Policy for more details or to opt-out at any time.
+        <div className='checkbox-opt-in-notice'> 
+            <input
+              type='checkbox'
+              checked={optIn}
+              onChange={() => setOptIn(!optIn)} />
+             
+          
+          <p> Opt-in to personalized emails about our fantastic TAPioca products. <br></br> <br></br>See our Privacy Policy for more details or to opt-out at any time. </p>
+        </div>
 
 <br></br>
-add a checkbox here. if they do not check the box then they cannot submit Please contact me via email
-<br></br>
-
-By clicking Complete account, I agree that I have read and accepted the Terms of Use and Privacy Policy.</p>
         <button type="submit">Sign Up</button>
       </form>
 
