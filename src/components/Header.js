@@ -22,7 +22,8 @@ const Header = ({ cart, setCart }) => {
       <header>
         <div className="logo">
           <Link to="/">
-            <b>TAP</b>ioca</Link>
+            <b>TAP</b>ioca
+          </Link>
         </div>
         
           <ul>

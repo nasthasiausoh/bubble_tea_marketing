@@ -9,6 +9,7 @@ const Signup = ({ onSignUp }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [gender, setGender] = useState('');
   const [optIn, setOptIn] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -20,20 +21,7 @@ const Signup = ({ onSignUp }) => {
     }
 
     // Call the onSignUp prop to handle user registration
-    onSignUp({ firstname, lastname, username, email, password, birthday, optIn});
-
-    // Track the signed-up event with Zeta
-  //   try {
-  //     // Use the globally defined bt function
-  //     bt('track', 
-  //  'signed_up', 
-  //  {email: 'user@example.com'}
-  // );
-
-  //     // You can add additional logic after tracking the event if needed
-  //   } catch (error) {
-  //     console.error('Error tracking signed-up event:', error);
-  //   }
+    onSignUp({ firstname, lastname, username, email, password, birthday, gender, optIn});
 
     // Clear form fields
     setFirstname('');
@@ -42,14 +30,38 @@ const Signup = ({ onSignUp }) => {
     setEmail('');
     setPassword('');
     setBirthday('');
+    setGender('');
     setOptIn(false);
   };
 
+  const handleBirthdayChange = (e) => {
+    const input = e.target.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+  
+    if (input.length <= 8) {
+      // Ensure the length does not exceed 8 characters
+      const formattedBirthday = input.replace(/(\d{4})(\d{0,2})(\d{0,2})/, '$1-$2-$3');
+      setBirthday(formattedBirthday);
+    }
+  };
+  
+
   return (
     <div className='signup'>
-      <h2>Sign Up To TAPioca</h2>
+      <h1>Sign Up To TAPioca</h1>
       <form onSubmit={handleSubmit}>
         <div>
+
+        <label id='gender-field-signup'>
+          Gender:
+          <select value={gender} onChange={(e) => setGender(e.target.value)}>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <br />
+
           <label>
               First Name:
               <input type="text" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
@@ -70,9 +82,10 @@ const Signup = ({ onSignUp }) => {
 
         <label>
           Birthday (YYYY-MM-DD):
-          <input type="text" value={birthday} onChange={(e) => setBirthday(e.target.value)} />
+          <input type="text" value={birthday} onChange={handleBirthdayChange} />
         </label>
         <br />
+
         <br></br>
         <label>
           Username:
@@ -96,8 +109,10 @@ const Signup = ({ onSignUp }) => {
           <p> Opt-in to personalized emails about our fantastic TAPioca products. <br></br> <br></br>See our Privacy Policy for more details or to opt-out at any time. </p>
         </div>
 
-<br></br>
-        <button type="submit">Sign Up</button>
+        <br></br>
+        <div className='submit-button'>
+        <button type="submit" id='submit-signup-button' >Sign Up</button>
+        </div>
       </form>
 
       <p>

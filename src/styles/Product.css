@@ -7,7 +7,10 @@
   .product {
     border: 2px solid #ddd;
     border-radius: 16px;
-    padding: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+
     text-align: center;
     height: 30rem;
     margin: 5%;
@@ -26,6 +29,7 @@
   
   .product p {
     margin-bottom: 8px;
+    font-size: 1.2rem;
   }
   
   .product button {
@@ -52,3 +56,25 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .quantity-in-cart{
+    color: red;;
+  }
+  
+  .image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .product:hover .product-image {
+    transform: scale(1.1); /* Adjust the scale factor for desired zoom level */
+  }
+  
+
+  

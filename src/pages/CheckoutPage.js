@@ -45,7 +45,9 @@ const CheckoutPage = ({ cart, setCart, user }) => {
         <Link to="/products">
           <button>No, Continue Shopping</button>
         </Link>
-        <button id='confirm-order' onClick={handleCheckout}>Confirm Order</button>
+        <Link to='/buy'>
+         <button id='confirm-order' onClick={handleCheckout}>Confirm Order</button>
+        </Link>
 
       </div>
     </div>

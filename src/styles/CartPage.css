@@ -1,7 +1,8 @@
 .cart-item-list {
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
+    justify-content: center;
+    font-size: 1.4rem;
 
 }
 
@@ -9,9 +10,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding-top: 3%;
-    width: 100rem;
-    height: 100rem;
 }
 
 #my-cart {
@@ -26,7 +26,7 @@
     color: white;
     padding: 8px 16px;
     margin-bottom: 0.8rem;
-    margin-left: 5px;
+    margin-left: 1.2rem;
     border: none;
     cursor: pointer;
     font-size: 1rem;
@@ -34,11 +34,33 @@
     height: 2.6rem;
   }
   
-  .my-cart-page button:hover {
-    background-color: #ffafcc;
-    }
+.my-cart-page button:hover {
+background-color: #ffafcc;
+}
 
 #checkout-button:hover {
     background-color: green;
+}
+
+#cart-image-icon {
+    width: 7rem;
+}
+
+#total-cost{
+    font-size: 1.3rem;
+}
+
+.product-in-cart > li {
+    display: flex;
+    align-items: center;
+}
+
+#empty-cart {
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: red;
 
 }

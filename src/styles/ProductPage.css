@@ -45,6 +45,7 @@
   border-radius: 10px;
   height: 2.4rem;
 }
+
 /* Override styles for the slider */
 .slick-slider {
   margin: 0 auto;
@@ -69,8 +70,8 @@
   font-size: 20px;
   color: black; /* Arrow color */
   z-index: 1;
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 2.3rem;
+  height: 2.3rem;
   border-radius: 20px;
   background-color: #ffafcc;
   display: flex;
@@ -86,11 +87,10 @@
   right: -1.2rem; /* Adjust the right position as needed */
 }
 
-
 .product-page-title {
   display: flex;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
 }
 
 .product-page-title:hover {
@@ -100,7 +100,20 @@
 .title-options {
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
-  text-decoration-line: underline;
+  margin-top: 6rem;
+  font-size: 2rem;
+}
+
+.title-options:hover {
+  color: #ffafcc;
+}
+
+#tag-line {
   font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+}
+
+#tag-line:hover {
+  color: rgb(50, 117, 162);
 }

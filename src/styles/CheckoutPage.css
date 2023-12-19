@@ -9,7 +9,6 @@
   margin-bottom: 1.5rem;
   }
 
-
 .checkout-page {
   display: flex;
   flex-direction: column;
@@ -39,7 +38,6 @@
   }
 
   #confirm-order:hover {
-
     background-color: green;
   }
 

@@ -7,14 +7,20 @@ const Product = ({ product, addToCart, removeFromCart, cart }) => {
 
   return (
     <div className="product">
-      <img src={product.image} alt={product.name} />
+      <div className="image-container">
+        <img src={product.image} alt={product.name} className="product-image" />
+      </div>
       <h3>{product.name}</h3>
       <p>{product.description}</p>
       <p>£{product.price.toFixed(2)}</p>
       <div className="cart-actions">
-        <button onClick={() => addToCart(product)}>Add to Cart</button>
-        {quantityInCart > 0 && (
-          <button onClick={() => removeFromCart(product)}>Remove from Cart</button>
+      <button id='update-cart' onClick={() => addToCart(product)}>Add to Cart</button>
+
+      <button id='update-cart' onClick={() => removeFromCart(product)}>Remove from Cart</button>
+              {quantityInCart > 0 && (
+      <>
+      <span className="quantity-in-cart">x{quantityInCart} added to your cart.</span>
+      </>
         )}
       </div>
     </div>
@@ -22,3 +28,4 @@ const Product = ({ product, addToCart, removeFromCart, cart }) => {
 };
 
 export default Product;
+

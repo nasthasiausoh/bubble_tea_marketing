@@ -180,19 +180,8 @@ const App = () => {
       <Router>
         <div className="app">
           <Header cart={cart} toggleCart={toggleCart} user={user} setCart={setCart} />
-          {/* <ZetaGlobalTag customerID={customerID} />
-          <ZetaConversionTag orderID={orderID} orderAmount={orderAmount} /> */}
-        <Routes>
-          {/* <Route
-            path="/"
-            element={
-              <Home
-                productsData={productsData}
-                addToCart={addToCart}
-                removeFromCart={removeFromCart}
-              />
-            }
-          /> */}
+         
+         <Routes>
           <Route path="/" element={
           <ProductPage 
             productsData={productsData} 
@@ -224,7 +213,7 @@ const App = () => {
           <Route path="/profile" element={<UserProfilePage user={user} />} />
           <Route
             path="/cart"
-            element={<CartPage cart={cart} removeFromCart={removeFromCart} />}
+            element={<CartPage cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />}
           />
           <Route
             path="/checkout"

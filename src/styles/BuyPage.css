@@ -1,0 +1,42 @@
+.order-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.order-page ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-page p, ul, li {
+    font-size: 1.2rem;
+    justify-content: space-between;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.order-summary-content {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+
+.order-confirm-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.order-confirm-message > p {
+    font-size: 1.3rem;
+}
+
+#order-summary-heading {
+    text-decoration: underline;
+}
