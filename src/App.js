@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid'; // Import uuid
 const App = () => {
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState(null);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  // const [isCartOpen, setIsCartOpen] = useState(false);
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [customerID, setCustomerID] = useState(uuidv4()); // Generate unique customerID
   const [orderID, setOrderID] = useState(uuidv4()); // Generate unique orderID
@@ -38,7 +38,7 @@ const App = () => {
       {
         id: 1,
         name: 'TAPutella',
-        price: 7.99,
+        price: 6.99,
         image: 'https://bubbleteashop.com/wp-content/uploads/2022/06/BBTS-YIN-YANG-REGULIER_350x350.png',
         description: 'Chocolate Nutella Milk Tea with Tapioca Pearls',
         category: 'Milk Tea',
@@ -70,7 +70,7 @@ const App = () => {
       {
         id: 5,
         name: 'Taro Milk Tea',
-        price: 6.99,
+        price: 6.59,
         image: 'https://bubbleteashop.com/wp-content/uploads/2022/06/BBTS-TARO-REGULIER_350x350.png',
         description: 'Taro Milk Tea with Tapioca Pearls',
         category: 'Milk Tea',
@@ -110,7 +110,7 @@ const App = () => {
       {
       id: 10,
       name: 'Warm Oat Spiced Vanilla Chai',
-      price: 9.99,
+      price: 7.99,
       image: 'https://bubbleteashop.com/wp-content/uploads/2022/06/BBTS-ORIGINAL-REGULIER_350x350.png',
       description:'A Warm Spiced Vanilla Chai with Tapioca Pearls' ,
       category: 'Special Drink',
@@ -126,7 +126,7 @@ const App = () => {
     {
       id: 12,
       name: 'Pomegranate & Lychee Fizz',
-      price: 9.99,
+      price: 6.99,
       image: 'https://bubbleteashop.com/wp-content/uploads/2022/06/BBTS-PAMPLEMOUSSE-REGULIER_350x350.png',
       description:'Pomegranate & Lychee Fizz with Lychee Popping Boba' ,
       category: 'Special Drink',
@@ -171,15 +171,15 @@ const App = () => {
       });
     };
 
-  const toggleCart = () => {
-    setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen);
-  };
+  // const toggleCart = () => {
+  //   setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen);
+  // };
 
   return (
     <AuthProvider>
       <Router>
         <div className="app">
-          <Header cart={cart} toggleCart={toggleCart} user={user} setCart={setCart} />
+          <Header cart={cart} user={user} setCart={setCart} />
          
          <Routes>
           <Route path="/" element={
