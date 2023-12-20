@@ -19,7 +19,7 @@ const App = () => {
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [customerID, setCustomerID] = useState(uuidv4()); // Generate unique customerID
   const [orderID, setOrderID] = useState(uuidv4()); // Generate unique orderID
-  const [orderAmount, setOrderAmount] = useState('50.00'); // Set a default orderAmount
+  const [orderAmount, setOrderAmount] = useState(''); // Set a default orderAmount (it was set to 50 before)
 
   const handleSignUp = (userData) => {
     // Store the user information in local storage

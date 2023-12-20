@@ -23,6 +23,14 @@ const Signup = ({ onSignUp }) => {
     // Call the onSignUp prop to handle user registration
     onSignUp({ firstname, lastname, username, email, password, birthday, gender, optIn});
 
+        // Trigger Zeta tracking
+        try {
+          // Use the globally defined bt function
+          bt('track', 'signed_up', { email, firstname, lastname, gender, birthday, username, password });
+        } catch (error) {
+          console.error('Error tracking signed-up event:', error);
+        }
+
     // Clear form fields
     setFirstname('');
     setLastname('');
