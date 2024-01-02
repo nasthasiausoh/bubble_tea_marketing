@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import ProductPage from './pages/ProductPage';
+import MilkTeaProducts from './components/MilkTeaProducts';
+import FruitTeaProducts from './components/FruitTeaProducts';
+import SpecialDrinksProducts from './components/SpecialDrinksProducts';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import UserProfilePage from './pages/UserProfilePage';
@@ -190,8 +193,10 @@ const App = () => {
             setCart={setCart}
             cart={cart} />} />
 
+            
+
           {/* Add a route for the Special Drinks category */}
-          <Route
+          {/* <Route
             path="/special-drinks"
             element={
             <ProductPage 
@@ -200,8 +205,20 @@ const App = () => {
             setCart={setCart} 
             addToCart={addToCart} 
             removeFromCart={removeFromCart} />}
+          /> */}
+
+          <Route
+            path="/milk-tea"
+            element={<MilkTeaProducts />}
           />
-          
+          <Route
+            path="/fruit-tea"
+            element={<FruitTeaProducts/>}
+          />
+          <Route
+          path="/special-drinks"
+          element={<SpecialDrinksProducts/>}
+         />
           <Route
             path="/signup"
             element={<Signup onSignUp={handleSignUp} />}

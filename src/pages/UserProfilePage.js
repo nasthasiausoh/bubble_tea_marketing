@@ -5,9 +5,18 @@ import '../styles/UserProfilePage.css'
 const UserProfilePage = () => {
   const { user } = useAuth();
 
+  // const capitalizeFirstLetter = (str) => {
+  //   return str.charAt(0).toUpperCase() + str.slice(1);
+  // };
+
   const capitalizeFirstLetter = (str) => {
+    if (typeof str !== 'string' || str.length === 0) {
+      return ''; // Return an empty string if str is not a non-empty string
+    }
+  
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+  
 
   return (
     <div className='my-account-page'>
