@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import Product from '../components/Product';
 import '../styles/ProductPage.css';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart }) => {
   const location = useLocation();
@@ -61,6 +62,9 @@ const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart })
         style={{ maxWidth: '100%', height: 'auto', cursor: 'pointer' }}
         onClick={handleBannerClick}
       /> */}
+
+
+      <Navbar/>
 
       <h2 className="product-page-title">TAPioca's Product Page</h2>
       <p  id='tag-line'> <i> Discover the world's best bubble tea drinks from the comfort of your home! </i> </p>
