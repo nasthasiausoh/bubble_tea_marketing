@@ -28,16 +28,19 @@ const Header = ({ cart, setCart }) => {
         
           <ul>
             <li>
-              <Link to="/" onClick={toggleMenu}>Home</Link>
+              <Link to="/" onClick={toggleMenu}>HOME</Link>
             </li>
             <li>
-              <Link to="/cart" onClick={toggleMenu}>My Cart</Link>
+              <Link to="/cart" onClick={toggleMenu}>CART</Link>
+            </li>
+            <li>
+              <Link>ABOUT US</Link>
             </li>
   
             {user ? (
               <>
                 <li>
-                  <Link to="/profile" onClick={toggleMenu}>My Account</Link>
+                  <Link to="/profile" onClick={toggleMenu}>MY ACCOUNT</Link>
                 </li>
                 <li>
                   <button id='logout-button' onClick={handleLogout}>Logout</button>
@@ -45,10 +48,11 @@ const Header = ({ cart, setCart }) => {
               </>
             ) : (
               <li>
-                <Link to="/signup" onClick={toggleMenu}>Sign Up/Log In</Link>
+                <Link to="/signup" onClick={toggleMenu}>SIGNUP/LOGIN</Link>
               </li>
             )}
           <div className="search-icon">
+            <input type='text' placeholder='Search bubble tea...'></input>
             <FaSearch />
           </div>
    

@@ -1,0 +1,21 @@
+
+.title-options {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    color: #7b2cbf;
+  }
+  
+  .title-options:hover {
+    color: #2ec4b6;
+  }
+  
+  #tag-line {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #tag-line:hover {
+    color: #bc6c25;
+  }

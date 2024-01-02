@@ -7,22 +7,24 @@
   }
   
   header {
-    background-color: #cdb4db;
+    /* background-color: #ccd5ae; */
+    background-color: black;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5rem;
-    font-size: 2.8rem;
+    height: 7rem;
+    /* margin-left: 1%;
+    margin-right: 1%; */
   }
 
-  
+
   .logo a {
     color: white;
     text-decoration: none;
     font-size: 2.5rem;
   }
-  
+
   .nav {
     display: flex;
     align-items: center;
@@ -46,11 +48,11 @@
   a {
     color: white;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
-  a:hover {
-    font-size: 1.5rem;
+  ul a:hover {
+    font-size: 1.3rem;
   }
 
   ul li:hover {
@@ -58,12 +60,21 @@
   }
 
   .search-icon {
+    display: flex;
+    justify-content: center;
     color: white;
+    align-items: center;
   }
 
+  .search-icon input {
+      padding-left: 3px;
+      margin-right: 0.4rem;
+      border-radius: 18px;
+      font-size: 17px;
+    }
+  
   .search-icon:hover {
     cursor: pointer;
-    color: #a2d2ff;
   }
 
 

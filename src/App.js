@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import ProductPage from './pages/ProductPage';
@@ -14,6 +13,8 @@ import BuyPage from './pages/BuyPage';
 import NotFound from './pages/NotFound';
 import { AuthProvider } from './contexts/AuthContext';
 import { v4 as uuidv4 } from 'uuid'; // Import uuid
+import React, { useEffect, useState, useRef } from 'react';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -174,9 +175,46 @@ const App = () => {
       });
     };
 
-  // const toggleCart = () => {
-  //   setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen);
-  // };
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const specialDrinkRef = useRef(null);
+  
+    // useEffect(() => {
+    //   if (location.state?.fromBanner) {
+    //     // Scroll to the special drink options after the component mounts
+    //     specialDrinkRef.current.scrollIntoView({ behavior: 'smooth' });
+    //   }
+    // }, [location.state?.fromBanner]);
+  
+    const CustomNextArrow = (props) => {
+      const { className, onClick } = props;
+      return <div className={className} onClick={onClick}><i className="fas fa-chevron-right"></i></div>;
+    };
+  
+    const CustomPrevArrow = (props) => {
+      const { className, onClick } = props;
+      return <div className={className} onClick={onClick}><i className="fas fa-chevron-left"></i></div>;
+    };
+  
+    const groupedProducts = productsData.reduce((acc, product) => {
+      if (!acc[product.category]) {
+        acc[product.category] = [];
+      }
+      acc[product.category].push(product);
+      return acc;
+    }, {});
+  
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      afterChange: (current) => setCurrentSlide(current),
+      nextArrow: <CustomNextArrow />,
+      prevArrow: <CustomPrevArrow />,
+    };
+  
+
 
   return (
     <AuthProvider>
@@ -193,24 +231,21 @@ const App = () => {
             setCart={setCart}
             cart={cart} />} />
 
-            
-
-          {/* Add a route for the Special Drinks category */}
-          {/* <Route
-            path="/special-drinks"
-            element={
-            <ProductPage 
-            productsData={productsData} 
-            cart={cart} 
-            setCart={setCart} 
-            addToCart={addToCart} 
-            removeFromCart={removeFromCart} />}
-          /> */}
-
           <Route
-            path="/milk-tea"
-            element={<MilkTeaProducts />}
-          />
+            path="/milk-tea" 
+            element={
+            <MilkTeaProducts
+              productsData={productsData} 
+              addToCart={addToCart} 
+              removeFromCart={removeFromCart}
+              setCart={setCart}
+              cart={cart}
+              groupedProducts={groupedProducts}
+              specialDrinkRef={specialDrinkRef}
+              settings={settings}
+              currentSlide={currentSlide} />}
+            />
+
           <Route
             path="/fruit-tea"
             element={<FruitTeaProducts/>}
