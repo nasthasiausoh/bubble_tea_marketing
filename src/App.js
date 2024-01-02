@@ -53,7 +53,7 @@ const App = () => {
         price: 8.99,
         image: 'https://bubbleteashop.com/wp-content/uploads/2022/06/BBTS-PETIT-BOBA-REGULIER_350x350.png',
         description: 'Caffeinated Eneregy Drink with Tapioca Pearls' ,
-        category: 'Special Drink',
+        category: 'Signature Drink',
       },
       {
         id: 3,
@@ -61,7 +61,7 @@ const App = () => {
         price: 9.99,
         image: 'https://bubbleteashop.com/wp-content/uploads/2022/06/BBTS-BLEUET-REGULIER_350x350.png',
         description:'A Cocktail Drink with Tapioca Pearls' ,
-        category: 'Special Drink',
+        category: 'Signature Drink',
       },
       {
         id: 4,
@@ -117,7 +117,7 @@ const App = () => {
       price: 7.99,
       image: 'https://bubbleteashop.com/wp-content/uploads/2022/06/BBTS-ORIGINAL-REGULIER_350x350.png',
       description:'A Warm Spiced Vanilla Chai with Tapioca Pearls' ,
-      category: 'Special Drink',
+      category: 'Signature Drink',
     },
     {
       id: 11,
@@ -133,7 +133,7 @@ const App = () => {
       price: 6.99,
       image: 'https://bubbleteashop.com/wp-content/uploads/2022/06/BBTS-PAMPLEMOUSSE-REGULIER_350x350.png',
       description:'Pomegranate & Lychee Fizz with Lychee Popping Boba' ,
-      category: 'Special Drink',
+      category: 'Signature Drink',
     },  
     ];
 
@@ -178,13 +178,6 @@ const App = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const specialDrinkRef = useRef(null);
   
-    // useEffect(() => {
-    //   if (location.state?.fromBanner) {
-    //     // Scroll to the special drink options after the component mounts
-    //     specialDrinkRef.current.scrollIntoView({ behavior: 'smooth' });
-    //   }
-    // }, [location.state?.fromBanner]);
-  
     const CustomNextArrow = (props) => {
       const { className, onClick } = props;
       return <div className={className} onClick={onClick}><i className="fas fa-chevron-right"></i></div>;
@@ -214,8 +207,6 @@ const App = () => {
       prevArrow: <CustomPrevArrow />,
     };
   
-
-
   return (
     <AuthProvider>
       <Router>
@@ -248,12 +239,34 @@ const App = () => {
 
           <Route
             path="/fruit-tea"
-            element={<FruitTeaProducts/>}
+            element={
+            <FruitTeaProducts
+              productsData={productsData} 
+              addToCart={addToCart} 
+              removeFromCart={removeFromCart}
+              setCart={setCart}
+              cart={cart}
+              groupedProducts={groupedProducts}
+              specialDrinkRef={specialDrinkRef}
+              settings={settings}
+              currentSlide={currentSlide} />}
           />
+
           <Route
-          path="/special-drinks"
-          element={<SpecialDrinksProducts/>}
+          path="/signature-drinks"
+          element={
+          <SpecialDrinksProducts
+              productsData={productsData} 
+              addToCart={addToCart} 
+              removeFromCart={removeFromCart}
+              setCart={setCart}
+              cart={cart}
+              groupedProducts={groupedProducts}
+              specialDrinkRef={specialDrinkRef}
+              settings={settings}
+              currentSlide={currentSlide} />}
          />
+         
           <Route
             path="/signup"
             element={<Signup onSignUp={handleSignUp} />}

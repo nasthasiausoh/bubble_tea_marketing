@@ -4,16 +4,16 @@ import Slider from 'react-slick';
 import Product from '../components/Product';
 import '../styles/ProductPage.css';
 import { useNavigate } from 'react-router-dom';
-import Banner from '../components/Banner';
+import GeneralBanner from '../components/GeneralBanner';
 
 const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart }) => {
 
   return (
     <div className="product-page">
-      <Banner/>
+      <GeneralBanner/>
 
       <p  id='tag-line'> <i> Discover the world's best bubble tea drinks from the comfort of your home! </i> </p>
-      <h2 className="product-page-title">OUR DRINKS</h2>
+      <h2 className="product-page-title">OUR DRINK CATEGORIES</h2>
 
 
       <div className='drink-category-options'>
@@ -30,7 +30,7 @@ const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart })
         </div>
 
         <div id='category-button-description'>
-        <Link to='/special-drinks'><button>SIGNATURE DRINKS</button>
+        <Link to='/signature-drinks'><button>SIGNATURE DRINKS</button>
           </Link> 
           <p>Click above to see TAPioca's signature blends. <br></br> These will give you a Bubble Tea experience like no other!</p>   
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Banner.css';
 import bannerImage from '../assets/bannerImage.jpg';
 
-const Banner = () => {
+const GeneralBanner = () => {
   return (
     <div className='banner'>
       <img src={bannerImage} alt="Bubble Tea Banner" />
@@ -10,4 +10,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default GeneralBanner;
