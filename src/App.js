@@ -15,11 +15,11 @@ import { AuthProvider } from './contexts/AuthContext';
 import { v4 as uuidv4 } from 'uuid'; // Import uuid
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
+import Footer from './components/Footer'
 
 const App = () => {
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState(null);
-  // const [isCartOpen, setIsCartOpen] = useState(false);
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [customerID, setCustomerID] = useState(uuidv4()); // Generate unique customerID
   const [orderID, setOrderID] = useState(uuidv4()); // Generate unique orderID
@@ -290,6 +290,8 @@ const App = () => {
       </div>
         
       </Router>
+
+      <Footer/>
     </AuthProvider>
   );
 };

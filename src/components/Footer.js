@@ -6,16 +6,22 @@ const Footer = () => {
   return (
     <div className='footer'>
         <div className='footer-container'>
-            <h4>Terms & Conditions </h4>
-            <h4> Privacy </h4>
-            <h4> Accessibility </h4>
-            <div className='social'>
-              <h4>Contact Us:</h4>
-                  <FaPhone size={20} style={{color: '#ffffff', marginRight: '2rem'}}/> 
-                  <FaMailBulk size={20} style={{color: '#ffffff', marginRight: '2rem'}}/>
-                  <FaFacebook size={20} style={{color: '#ffffff', marginRight: '1rem'}}/>
-                  <FaTwitter size={20} style={{color: '#ffffff', marginRight: '1rem'}}/>
-            </div>
+            <p>Terms & Conditions</p>
+            <p>Privacy</p>
+            <p>Accessibility</p>
+            <p>Returns & Refunds</p>
+            <p>FAQs</p>
+            <p>Delivery Information</p>
+            <p>Exchange Policies</p>
+            <p>Our Newsletter</p>
+
+          <div className='social'>
+            <p id='contact-us'>Contact Us:</p>
+              <FaPhone size={20} style={{color: '#ffffff', marginRight: '2rem'}}/> 
+              <FaMailBulk size={20} style={{color: '#ffffff', marginRight: '2rem'}}/>
+              <FaFacebook size={20} style={{color: '#ffffff', marginRight: '1rem'}}/>
+              <FaTwitter size={20} style={{color: '#ffffff', marginRight: '1rem'}}/>
+          </div>
         </div>
     </div>
   )

@@ -83,7 +83,7 @@
 }
 
 .product-page-title {
-  margin-top: 3%;;
+  margin-top: 5%;;
   margin-left: 3%;
   font-size: 1.5rem;
   color: #bb3e03;
@@ -135,7 +135,7 @@
   align-items: center;
   font-size: 1.2rem;
   /* font-weight: bold; */
-  margin: 2%;
+  margin-top: 2%;
 }
 
 #category-button-description p {
