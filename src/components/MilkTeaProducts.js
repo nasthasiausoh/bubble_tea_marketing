@@ -8,6 +8,12 @@ import MilkBanner from './MilkBanner';
 const MilkTeaProducts = ({productsData, cart, setCart, addToCart, removeFromCart, groupedProducts, specialDrinkRef, settings, currentSlide}) => {
 
  const milkTeaCategory = 'Milk Tea';
+//  const location = useLocation();
+
+//  useEffect(() => {
+//   window.scrollTo(0,0);
+//  }, [location.pathname]);
+ 
 
   return (
     <div className='product-page'>

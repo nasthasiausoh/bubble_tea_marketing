@@ -21,6 +21,7 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState(null);
   const [registeredUsers, setRegisteredUsers] = useState([]);
+  const [discountedTotal, setDiscountedTotal] = useState(null); // New state for discounted total
   const [customerID, setCustomerID] = useState(uuidv4()); // Generate unique customerID
   const [orderID, setOrderID] = useState(uuidv4()); // Generate unique orderID
   const [orderAmount, setOrderAmount] = useState(''); // Set a default orderAmount (it was set to 50 before)
@@ -282,9 +283,13 @@ const App = () => {
           />
           <Route
             path="/checkout"
-            element={<CheckoutPage cart={cart} setCart={setCart} />}
+            element={<CheckoutPage cart={cart} setCart={setCart}
+            setDiscountedTotal={setDiscountedTotal} />}
           />
-          <Route path="/buy" element={<BuyPage cart={cart} />} />
+          <Route 
+            path="/buy" 
+            element={<BuyPage cart={cart} discountedTotal={discountedTotal} />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
