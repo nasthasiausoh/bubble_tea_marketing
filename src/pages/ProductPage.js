@@ -10,10 +10,12 @@ const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart })
 
   return (
     <div className="product-page">
-      <GeneralBanner/>
 
-      <p  id='tag-line'> <i> Discover the world's best bubble tea drinks from the comfort of your home! </i> </p>
-      <h2 className="product-page-title">OUR DRINK CATEGORIES</h2>
+      {/* <div className='homepage-hero'> */}
+        <GeneralBanner/>
+        {/* <p  id='tag-line'> Discover the world's best bubble tea drinks from the comfort of your home! </p>
+      </div>  */}
+      <h2 className="product-page-title">OUR BUBBLE TEA HOME KIT OPTIONS</h2>
 
 
       <div className='drink-category-options'>

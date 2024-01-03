@@ -13,14 +13,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5rem;
+    height: 3rem;
   }
 
 
   .logo a {
     color: white;
     text-decoration: none;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   .nav {
@@ -46,11 +46,11 @@
   a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   ul a:hover {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   ul li:hover {
@@ -65,10 +65,10 @@
   }
 
   .search-icon input {
-      padding-left: 3px;
+      padding-left: 2%;
       margin-right: 0.4rem;
       border-radius: 18px;
-      font-size: 17px;
+      font-size: 0.9rem;
     }
   
   .search-icon:hover {
