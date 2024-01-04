@@ -3,13 +3,8 @@ import '../styles/BuyPage.css'
 
 const BuyPage = ({ cart, discountedTotal }) => {
 
-  // const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-
   const cartTotal = discountedTotal !== null ? discountedTotal : cart.reduce((total, item) => total + item.price * item.quantity, 0);
-
-
-
-  
+ 
   return (
     <div className='order-page'>
       <h1>TAPioca thanks you!</h1>
