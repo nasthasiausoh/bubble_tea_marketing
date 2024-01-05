@@ -38,7 +38,7 @@ const CheckoutPage = ({ cart, setCart, user, setDiscountedTotal}) => {
 
   return (
     <div className='checkout-page'>
-       <h2 id='review-order'>Review Your Order:</h2>
+       <h2 id='review-order'> Review Your Order:</h2>
         <ul className='checkout-page-item-list'>
           {cart.map((item) => (
             <li key={item.id}>

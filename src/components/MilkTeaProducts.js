@@ -5,15 +5,39 @@ import Product from '../components/Product';
 import '../styles/MilkTeaProducts.css'
 import MilkBanner from './MilkBanner';
 
+import { trackPage, trackProlongedBrowsing } from '../contexts/zetaTracking';
+
+
 const MilkTeaProducts = ({productsData, cart, setCart, addToCart, removeFromCart, groupedProducts, specialDrinkRef, settings, currentSlide}) => {
 
- const milkTeaCategory = 'Milk Tea';
-//  const location = useLocation();
+  useEffect(() => {
+    const startTime = Date.now();
 
-//  useEffect(() => {
-//   window.scrollTo(0,0);
-//  }, [location.pathname]);
- 
+    return () => {
+      const endTime = Date.now();
+      const timeSpentInSeconds = Math.floor((endTime - startTime) / 1000);
+
+      // Track prolonged browsing for the Milk Tea page (threshold set to 60 seconds)
+      trackProlongedBrowsing('/milk-tea', timeSpentInSeconds, 60);
+    };
+  }, []);
+
+
+// for page_time_spent event but doesnt work properly:
+// useEffect(() => {
+//   const startTime = Date.now();
+
+//   return () => {
+//     const endTime = Date.now();
+//     const timeSpentInSeconds = Math.floor((endTime - startTime) / 1000);
+
+//     // Track the page time spent for the Milk Tea page
+//     trackPage('/milk-tea', timeSpentInSeconds);
+//   };
+// }, []); // Run the effect only once when the component mounts
+
+
+ const milkTeaCategory = 'Milk Tea';
 
   return (
     <div className='product-page'>

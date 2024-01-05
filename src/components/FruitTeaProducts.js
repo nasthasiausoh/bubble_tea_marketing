@@ -3,9 +3,22 @@ import { Link, BrowserRouter as Router, useLocation, useNavigate } from 'react-r
 import Slider from 'react-slick';
 import Product from '../components/Product';
 import FunBanner from './FunBanner';
+import {trackProlongedBrowsing} from '../contexts/zetaTracking.js'
 // import '../styles/FruitTeaProducts.css'
 
 const FruitTeaProducts = ({productsData, cart, setCart, addToCart, removeFromCart, groupedProducts, specialDrinkRef, settings, currentSlide}) => {
+ 
+  useEffect(() => {
+    const startTime = Date.now();
+
+    return () => {
+      const endTime = Date.now();
+      const timeSpentInSeconds = Math.floor((endTime - startTime) / 1000);
+
+      // Track prolonged browsing for the Fruit Tea page (threshold set to 60 seconds)
+      trackProlongedBrowsing('/fruit-tea', timeSpentInSeconds, 60);
+    };
+  }, []);
 
  const fruitTeaCategory = 'Fruit Tea';
 

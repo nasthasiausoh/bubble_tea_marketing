@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -13,6 +13,17 @@ export const AuthProvider = ({ children }) => {
   // Function to log out a user
   const logout = () => {
     setUser(null);
+  };
+
+
+  const getUserID = () => {
+    return user ? user.email : null; // Assuming your user object has an 'id' property
+  };
+
+  // Expose user data to the global scope
+  window.userData = {
+    getUserID,
+    // other user-related data
   };
 
   // Provide the user and authentication functions to the context

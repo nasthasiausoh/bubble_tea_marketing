@@ -16,6 +16,9 @@ import { v4 as uuidv4 } from 'uuid'; // Import uuid
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import Footer from './components/Footer'
+import { initializeZeta, trackSignedUpEvent, trackPurchaseEvent, trackPageTimeSpent, trackPage} from './contexts/zetaTracking.js';
+
+
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -25,6 +28,46 @@ const App = () => {
   const [customerID, setCustomerID] = useState(uuidv4()); // Generate unique customerID
   const [orderID, setOrderID] = useState(uuidv4()); // Generate unique orderID
   const [orderAmount, setOrderAmount] = useState(''); // Set a default orderAmount (it was set to 50 before)
+
+  const [currentPage, setCurrentPage] = useState('/');
+  const [startTime, setStartTime] = useState(Date.now());
+
+  // Initialize Zeta library
+  initializeZeta();
+
+  // useEffect(() => {
+  //   // Track time spent when the component mounts
+  //   setStartTime(Date.now());
+
+  //   // Clean up the timer when the component unmounts
+  //   return () => {
+  //     const endTime = Date.now();
+  //     const timeSpentInSeconds = Math.floor((endTime - startTime) / 1000);
+
+  //     // No need to track page time spent here
+  //   };
+  // }, [startTime]);
+
+
+
+//for the page_time_spent event: doesnt work properly
+  // useEffect(() => {
+  //   // Track time spent when the component mounts
+  //   setStartTime(Date.now());
+
+  //   // Clean up the timer when the component unmounts
+  //   return () => {
+  //     const endTime = Date.now();
+  //     const timeSpentInSeconds = Math.floor((endTime - startTime) / 1000);
+
+  //     // Track the page time spent for the current page
+  //     // Use a placeholder, as location is not available here
+  //     trackPage('/current-page', timeSpentInSeconds);
+  //   };
+  // }, [startTime]);
+
+
+
 
   const handleSignUp = (userData) => {
     // Store the user information in local storage

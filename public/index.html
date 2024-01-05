@@ -13,6 +13,38 @@
 
     <title>TAPioca Bubble Tea</title>
 
+    <script>
+        (function() {
+          var SITEID='partner-dev-tap-cxm';
+          (function(b, t, r, a, i, n) {
+              b['bt']=b['bt'] || function() {
+                  (b['_bt']=b['_bt']||[]).push(arguments);
+              },
+              i = t.createElement(r),
+              n = t.getElementsByTagName(r)[0];
+              i.async = 1;
+              i.src = a;
+              n.parentNode.insertBefore(i, n);
+          })(
+          window,document,'script','https://cdn.boomtrain.com/p13n/'+SITEID+'/p13n.min.js'
+          );
+
+          // Initialize Zeta library and provide user information
+          bt('initialize', SITEID, {externalIds: {zync: '96d8021c-68c9-4db0-8a67-d852e51e949b:1675772676.7032254'}});
+
+          // Retrieve user ID from your AuthContext (replace 'USER_ID' with the actual variable/method)
+          var userContext = document.getElementById('root').getAttribute('data-user-context');
+          var userId = userContext ? JSON.parse(userContext).user.id : null;
+
+          // Track page view with user ID
+          bt('track', 'page_view', { user_id: userId });
+      })();
+      
+      console.log("Zeta library built");
+    </script>
+
+    <script src="/src/App.js"></script>
+
       <!-- Adobe  -->
       <script src="https://assets.adobedtm.com/7595315f3cd2/3484f6600445/launch-8d9cfd2a4c25-development.min.js" async></script>
   
