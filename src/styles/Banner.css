@@ -6,10 +6,12 @@
   overflow: hidden;
   position: relative;
   margin-top: 1%;
+  display: flex;
+  justify-content: center;
 }
 
 .banner img {
-  width: 100%;
+  width: 80%;
   height: auto;
   display: block;
 }

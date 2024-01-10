@@ -16,11 +16,11 @@ import { v4 as uuidv4 } from 'uuid'; // Import uuid
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import Footer from './components/Footer'
-import { initializeZeta, trackSignedUpEvent, trackPurchaseEvent, trackPageTimeSpent, trackPage} from './contexts/zetaTracking.js';
+import { initializeZeta, trackSignedUpEvent, trackPurchaseEvent, trackPageTimeSpent, trackPage, trackAbandonedCartEvent} from './contexts/zetaTracking.js';
 
 
 
-const App = () => {
+const App = ({purchaseData}) => {
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState(null);
   const [registeredUsers, setRegisteredUsers] = useState([]);
@@ -31,42 +31,50 @@ const App = () => {
 
   const [currentPage, setCurrentPage] = useState('/');
   const [startTime, setStartTime] = useState(Date.now());
+  const [purchaseOccurred, setPurchaseOccurred] = useState(false);
+
 
   // Initialize Zeta library
   initializeZeta();
 
-  // useEffect(() => {
-  //   // Track time spent when the component mounts
-  //   setStartTime(Date.now());
-
-  //   // Clean up the timer when the component unmounts
-  //   return () => {
-  //     const endTime = Date.now();
-  //     const timeSpentInSeconds = Math.floor((endTime - startTime) / 1000);
-
-  //     // No need to track page time spent here
-  //   };
-  // }, [startTime]);
-
-
-
-//for the page_time_spent event: doesnt work properly
-  // useEffect(() => {
-  //   // Track time spent when the component mounts
-  //   setStartTime(Date.now());
-
-  //   // Clean up the timer when the component unmounts
-  //   return () => {
-  //     const endTime = Date.now();
-  //     const timeSpentInSeconds = Math.floor((endTime - startTime) / 1000);
-
-  //     // Track the page time spent for the current page
-  //     // Use a placeholder, as location is not available here
-  //     trackPage('/current-page', timeSpentInSeconds);
-  //   };
-  // }, [startTime]);
-
-
+  useEffect(() => {
+    const trackAbandonedCart = () => {
+      // Check if the user is not null
+      if (user) {
+        const { promoCode, discountedTotal, shoppingCartItems, first_name, last_name, email } = user;
+  
+        console.log("User found:", user);
+  
+        // Set a timeout to trigger the abandoned cart event after 1 minute
+        const abandonedCartTimeout = setTimeout(() => {
+          // Check if there are items in the cart after 1 minute
+          if (cart.length > 0) {
+            // Check if a purchase event has occurred during the 1-minute interval
+            if (!purchaseOccurred) {
+              // Trigger abandoned cart tracking when items are still in the cart after 1 minute
+              trackAbandonedCartEvent({
+                promoCode: promoCode || '',
+                discountedTotal: discountedTotal || 0,
+                shoppingCartItems: [...cart], // Use a copy of the cart to avoid stale data
+                firstName: first_name || '',
+                lastName: last_name || '',
+                email: email || '',
+              });
+            }
+          }
+        }, 60000); // 1 minute in milliseconds
+  
+        // Clean up the timeout when the component unmounts or when user data or cart changes
+        return () => clearTimeout(abandonedCartTimeout);
+      } else {
+        console.log("User is null");
+      }
+    };
+  
+    // Call the function to track abandoned cart
+    trackAbandonedCart();
+  }, [user, cart, purchaseOccurred]);
+  console.log(cart);
 
 
   const handleSignUp = (userData) => {

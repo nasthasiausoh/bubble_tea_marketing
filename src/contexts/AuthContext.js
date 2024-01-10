@@ -20,10 +20,9 @@ export const AuthProvider = ({ children }) => {
     return user ? user.email : null; // Assuming your user object has an 'id' property
   };
 
-  // Expose user data to the global scope
+  // Exposing user data to the global scope
   window.userData = {
     getUserID,
-    // other user-related data
   };
 
   // Provide the user and authentication functions to the context

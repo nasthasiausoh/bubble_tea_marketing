@@ -38,7 +38,7 @@ const CheckoutPage = ({ cart, setCart, user, setDiscountedTotal}) => {
 
   return (
     <div className='checkout-page'>
-       <h2 id='review-order'> Review Your Order:</h2>
+       <h2 id='review-order'> Review Your TAPioca Order</h2>
         <ul className='checkout-page-item-list'>
           {cart.map((item) => (
             <li key={item.id}>
@@ -58,7 +58,7 @@ const CheckoutPage = ({ cart, setCart, user, setDiscountedTotal}) => {
           value={couponCode}
           onChange={(e) => setCouponCode(e.target.value)}
         />
-        <button onClick={handleCheckout}>Apply Coupon</button>
+        <button id='apply-coupon' onClick={handleCheckout}>Apply Coupon</button>
         {couponMessage && <p className={couponMessage.includes('Invalid') ? 'error-message' : 'success-message'}>{couponMessage}</p>}
       </div>
 

@@ -157,13 +157,15 @@ const trackPurchaseEvent = (purchaseData) => {
           purchaseTime
         } = purchaseData;
 
-        // Create a formatted list of purchased items
-        const purchasedItems = shoppingCartItems.map(item => ({
+        // Check if shoppingCartItems is defined before mapping over it
+        const purchasedItems = shoppingCartItems ? shoppingCartItems.map(item => ({
           id: item.id,
           resourceType: item.resourceType,
           price: item.price,
-          quantity: item.quantity
-        }));
+          quantity: item.quantity,
+          itemName: item.name, 
+          itemImage: item.image 
+        })) : [];
 
         // Track the purchase event using Zeta
         window.bt('track', 'purchased', {
@@ -177,6 +179,10 @@ const trackPurchaseEvent = (purchaseData) => {
         });
 
         console.log("Zeta purchased event fired");
+
+        // Clear the cart after tracking the purchase event
+        // setCart([]);
+
         resolve();
       } catch (error) {
         reject(error);
@@ -191,20 +197,39 @@ const trackPurchaseEvent = (purchaseData) => {
 };
 
 
-// for page_time_spent
-// export const trackPage = (page, timeSpentInSeconds) => {
-//   try {
-//     // Track the page time spent using Zeta
-//     window.bt('track', 'page_time_spent', {
-//       page: page,
-//       time_spent: timeSpentInSeconds,
-//     });
+const trackAbandonedCartEvent = (cartData) => {
 
-//     console.log(`Zeta page time spent event for ${page} fired`);
-//   } catch (error) {
-//     console.error('Error tracking page time spent:', error);
-//   }
-// };
+  // Extract relevant data from cartData
+  const { promoCode, discountedTotal, shoppingCartItems, firstName, lastName, email } = cartData;
+
+  // Check if shoppingCartItems is present before attempting to map
+  const cartItemList = shoppingCartItems ? shoppingCartItems.map(item => ({
+    id: item.id,
+    resourceType: item.resourceType,
+    price: item.price,
+    quantity: item.quantity,
+    itemName: item.name || '',
+    itemImage: item.image || '',
+  })) : [];
+
+  // Calculate the total price of the cart
+  const totalCartPrice = cartItemList.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+
+  // Track the abandoned cart event using Zeta
+  window.bt('track', 'abandoned_cart', {
+    shoppingCartItems: cartItemList,
+    promoCode: promoCode || '', // Use actual coupon code or empty string
+    discountedTotal: discountedTotal || 0, // Use actual discounted total or 0
+    firstName: firstName || '', // Use actual first name or empty string
+    lastName: lastName || '', // Use actual last name or empty string
+    email: email || '', // Use actual email or empty string
+    totalCartPrice: totalCartPrice || 0, // Add the total price of the cart
+  });
+
+  console.log("Zeta abandoned cart event fired");
+};
+
 
 export const trackProlongedBrowsing = (page, timeSpentInSeconds, thresholdInSeconds) => {
   try {
@@ -246,4 +271,4 @@ const trackPageTimeSpent = (page, timeSpentInSeconds) => {
   }
 };
 
-export { initializeZeta, trackSignedUpEvent, trackPurchaseEvent, trackPageTimeSpent };
+export { initializeZeta, trackSignedUpEvent, trackPurchaseEvent, trackPageTimeSpent, trackAbandonedCartEvent};

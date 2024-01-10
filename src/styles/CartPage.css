@@ -55,6 +55,12 @@ background-color: #ffafcc;
     align-items: center;
 }
 
+.checkout-or-continue-shopping {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #empty-cart {
     font-size: 1.4rem;
     display: flex;

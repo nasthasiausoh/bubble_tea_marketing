@@ -68,7 +68,8 @@
   width: 2.3rem;
   height: 2.3rem;
   border-radius: 20px;
-  background-color: #ffafcc;
+  /* background-color: #ffafcc; */
+  background-color: #c97c18;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,7 +87,7 @@
   margin-top: 5%;;
   margin-left: 3%;
   font-size: 0.2rem;
-  color: #bb3e03;
+  /* color: #bb3e03; */
 }
 
 .product-page-title:hover {
@@ -102,14 +103,17 @@
 }
 
 .drink-category-options button {
-  width: 20rem;
-  height: 12rem;
+  width: 25rem;
+  height: 15rem;
   margin: 4px 2px;
   font-size: 1.8rem;
   word-wrap: break-word;
   border: none;
   border-radius: 18px;
-  background-color: #cdb4db;
+  /* background-color: #cdb4db; */
+  /* background-color: rgb(15, 155, 87); */
+  /* background-color: rgb(104, 38, 119); */
+  background-color: #c97c18;
   color: white;
   font-weight: bold;
   padding: 15px 32px;

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { FaSearch } from "react-icons/fa";
 import '../styles/Header.css';
+import { sendZetaAPIRequest } from '../utils/zetaApi';
 
 const Header = ({ cart, setCart }) => {
   const { user, logout } = useAuth();
@@ -15,6 +16,19 @@ const Header = ({ cart, setCart }) => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleAboutUsLinkClick = () => {
+    // Trigger the Zeta API call when the ABOUT US link is clicked
+    sendZetaAPIRequest()
+    .then(response => {
+      // Handle the API response if needed
+      console.log('Zeta API response:', response);
+    })
+    .catch(error => {
+      // Handle API error
+      console.error('Zeta API error:', error);
+    });
   };
 
   return (
@@ -34,7 +48,7 @@ const Header = ({ cart, setCart }) => {
               <Link to="/cart" onClick={toggleMenu}>CART</Link>
             </li>
             <li>
-              <Link>ABOUT US</Link>
+              <Link id='about-us-link' onClick={handleAboutUsLinkClick}>ABOUT US</Link>
             </li>
   
             {user ? (
@@ -43,7 +57,7 @@ const Header = ({ cart, setCart }) => {
                   <Link to="/profile" onClick={toggleMenu}>MY ACCOUNT</Link>
                 </li>
                 <li>
-                  <button id='logout-button' onClick={handleLogout}>Logout</button>
+                  <button id='logout-button' onClick={handleLogout}>LOG OUT</button>
                 </li>
               </>
             ) : (

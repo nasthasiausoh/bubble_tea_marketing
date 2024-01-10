@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 5rem;
+    padding-top: 2rem;
 }
 
 #update-button {
@@ -19,17 +19,29 @@
     height: 2rem;
   }
   
-  #update-button:hover {
-    background-color: #ffafcc;
-    }
+#update-button:hover {
+background-color: #ffafcc;
+}
 
 #welcome-user {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-style: italic;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .my-account-page p {
+    font-size: 1.2rem;
+}
+
+.my-account-border h2 {
     font-size: 1.4rem;
+}
+
+.user-section {
+    margin-top: 5rem;
 }
 
 #delete-button {

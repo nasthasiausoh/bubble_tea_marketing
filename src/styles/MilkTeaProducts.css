@@ -1,9 +1,10 @@
 .product-page h2 {
-  font-size: 1.7rem;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   /* margin-top: 3%; */
-  color: #bb3e03;
+  /* color: #bb3e03; */
+  color: black;
 }
 
 .product-page p {
@@ -20,9 +21,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgb(197, 148, 148);
+  border: 3px solid rgb(91, 88, 88);
   border-radius: 20px;
   border-width: 80%;
+  margin-top: 15rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
   border-style: inset;
   margin-top: 3%;
 }
@@ -30,9 +34,12 @@
 .title-options {
     display: flex;
     justify-content: center;
-    font-size: 1.6rem;
-    color: #2ec4b6;
+    font-size: 2rem;
+    color: black;
     margin-top: 4%;
+  }
+  .title-options:hover {
+    color: rgb(104, 38, 119);
   }
   
   #tag-line {

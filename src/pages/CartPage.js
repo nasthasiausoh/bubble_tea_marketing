@@ -19,8 +19,8 @@ const CartPage = ({ cart, addToCart, removeFromCart }) => {
                 <div className='product-in-cart'>
                 {cart.map((item) => (
               <li key={item.id}>
-               <img id='cart-image-icon' src={item.image}></img>  {item.name} - £{(item.price * item.quantity).toFixed(2)} (
-                {item.quantity} {item.quantity > 1 ? 'units' : 'unit'}){' '}
+               <img id='cart-image-icon' src={item.image}></img>  {item.name} - £{(item.price * item.quantity).toFixed(2)} [
+                {item.quantity} {item.quantity > 1 ? 'units' : 'unit'}]{' '}
                 <button onClick={() => addToCart(item)}>Add</button>
                 <button onClick={() => removeFromCart(item)}>Remove</button>
               </li>    
@@ -29,13 +29,14 @@ const CartPage = ({ cart, addToCart, removeFromCart }) => {
           </ul>
 
           <p id='total-cost'> <b> Total Cost: £{cartTotal.toFixed(2)} </b> </p>
-
-          <Link to="/checkout">
-            <button id='checkout-button' className='proceed-to-checkout'>Proceed to Checkout</button>
-          </Link>
-          <Link to="/">
-            <button>Continue Shopping</button>
-          </Link>
+          <div className='checkout-or-continue-shopping'>
+            <Link to="/checkout">
+              <button id='checkout-button' className='proceed-to-checkout'>Proceed to Checkout</button>
+            </Link>
+            <Link to="/">
+              <button>Continue Shopping</button>
+            </Link>
+          </div>
         </div>
       )}
     </div>
