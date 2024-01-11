@@ -2,13 +2,11 @@
   font-size: 2rem;
   display: flex;
   justify-content: center;
-  /* margin-top: 3%; */
-  /* color: #bb3e03; */
   color: black;
 }
 
 .product-page p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   display: flex;
   justify-content: center;
   align-items: center;

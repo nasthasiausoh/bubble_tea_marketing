@@ -27,9 +27,9 @@ const UserProfilePage = () => {
               <p id='welcome-user' > Welcome to TAPioca, {capitalizeFirstLetter(user.username)}!</p>
 
               <div className='user-section'>
-                <h2> TAPioca User's Details: </h2>
+                <h2> Personal Details: </h2>
 
-                <p> Full Name: <i>{capitalizeFirstLetter(user.firstname)} {capitalizeFirstLetter(user.lastname)} </i> <button id='update-button'>Update</button></p> 
+                <p> Full Name: <i>{capitalizeFirstLetter(user.first_name)} {capitalizeFirstLetter(user.last_name)} </i> <button id='update-button'>Update</button></p> 
                 <p> Username:  <i>{user.username} </i> <button id='update-button'>Update</button></p>
                 <p> Email Address: <i>{user.email} </i><button id='update-button'>Update</button></p>
                 <p> Change Password? <button id='update-button'>Update</button> </p>

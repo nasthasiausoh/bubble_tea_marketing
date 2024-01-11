@@ -5,8 +5,6 @@
 .product-page {
   padding-left: 20px;
   padding-right: 20px;
-  /* width: 100%; */
-
   align-items: center;
 
   h2 {
@@ -110,10 +108,8 @@
   word-wrap: break-word;
   border: none;
   border-radius: 18px;
-  /* background-color: #cdb4db; */
-  /* background-color: rgb(15, 155, 87); */
-  /* background-color: rgb(104, 38, 119); */
-  background-color: #c97c18;
+  /* background-color: #c97c18; */
+  background-color: #dc9231;
   color: white;
   font-weight: bold;
   padding: 15px 32px;
@@ -125,7 +121,7 @@
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   margin-bottom: 10%;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .drink-category-options button:hover {

@@ -63,21 +63,21 @@ const BuyPage = ({ cart, discountedTotal }) => {
 
   return (
     <div className='order-page'>
-      <h1>TAPioca thanks you!</h1>
+      <h1>TAPioca Thanks You!</h1>
       <h2>Your order was completed successfully.</h2>
       <img src="https://media1.tenor.com/m/_cb_93aqXpIAAAAC/bubble-tea-drink.gif" alt="Bubble Tea Drink" width={200}/>
 
       <div className='order-summary-content'>
-        <p id='order-summary-heading'>Order Summary</p>
+        <h3 id='order-summary-heading'>Order Summary</h3>
         <ul>
           {cart.map((item) => (
             <li key={item.id}>
-             <b>{item.name}</b>  - £{(item.price * item.quantity).toFixed(2)} [
+             {item.name}  -  £{(item.price * item.quantity).toFixed(2)} [
               {item.quantity} {item.quantity > 1 ? 'units' : 'unit'}]
             </li>
           ))}
         </ul>
-        <p> <b> Final Cost: £{cartTotal.toFixed(2)} </b> </p>
+        <p> <b> Final Total Cost: £{cartTotal.toFixed(2)} </b> </p>
       </div>
 
       <div className='order-confirm-message'>

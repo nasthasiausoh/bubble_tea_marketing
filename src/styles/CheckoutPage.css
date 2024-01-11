@@ -6,9 +6,16 @@
   }
 
   .checkout-page h2 {
-    margin-top: 3%;
+    margin-top: 5%;
     margin-bottom: 2%;
     font-size: 1.8rem;
+  }
+
+  .checkout-page-item-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .checkout-page-item-list li {
@@ -52,7 +59,7 @@
   }
 
   .checkout-buttons button {
-    background-color: #cdb4db;
+    background-color: #c97c18;
     color: white;
     padding: 8px 16px;
     margin-left: 6px;

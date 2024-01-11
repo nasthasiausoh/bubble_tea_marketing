@@ -22,7 +22,8 @@
 }
 
 .my-cart-page button {
-    background-color: #cdb4db;
+    /* background-color: #cdb4db; */
+    background-color: #c97c18;
     color: white;
     padding: 8px 16px;
     margin-bottom: 0.8rem;
@@ -35,10 +36,10 @@
   }
   
 .my-cart-page button:hover {
-background-color: #ffafcc;
+background-color: rgb(104, 38, 119);
 }
 
-#checkout-button:hover {
+#checkout-button {
     background-color: green;
 }
 

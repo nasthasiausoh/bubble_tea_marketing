@@ -15,18 +15,18 @@ const ProductPage = ({ productsData, addToCart, removeFromCart, cart, setCart })
         <GeneralBanner/>
         {/* <p  id='tag-line'> Discover the world's best bubble tea drinks from the comfort of your home! </p>
       </div>  */}
-      <h2 className="product-page-title">OUR BUBBLE TEA HOME KIT OPTIONS</h2>
+      <h2 className="product-page-title">Our Bubble Tea Home Kit Options</h2>
 
 
       <div className='drink-category-options'>
         <div id='category-button-description'>
-          <Link to='/milk-tea'><button id='bubble-tea-category-buttons'>MILK TEAs</button>
+          <Link to='/milk-tea'><button id='bubble-tea-category-buttons'>MILK TEAS</button>
             </Link> 
             <p>Click above to view TAPioca's Classic Milk Bubble Teas. <br></br>Try one of our 2023 award winning home-kit recipe.</p>
         </div>
 
         <div id='category-button-description'>
-          <Link to='/fruit-tea'><button id='bubble-tea-category-buttons'>FRUIT TEAs</button>
+          <Link to='/fruit-tea'><button id='bubble-tea-category-buttons'>FRUIT TEAS</button>
             </Link> 
             <p>Click above to view TAPioca's Fruity Bubble Teas. <br></br> Not a fan of dairy, alcohol or caffeine? Look no further!</p>
         </div>

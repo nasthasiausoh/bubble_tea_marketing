@@ -48,7 +48,7 @@ const Header = ({ cart, setCart }) => {
               <Link to="/cart" onClick={toggleMenu}>CART</Link>
             </li>
             <li>
-              <Link id='about-us-link' onClick={handleAboutUsLinkClick}>ABOUT US</Link>
+              <Link id='about-us-link'>ABOUT US</Link>
             </li>
   
             {user ? (

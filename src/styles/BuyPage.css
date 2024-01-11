@@ -12,10 +12,8 @@
 }
 
 .order-page p, ul, li {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     justify-content: space-between;
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .order-summary-content {
@@ -23,6 +21,7 @@
     flex-direction: column;
     border-radius: 1rem;
     margin-top: 2rem;
+    font-size: 1.4rem;
 }
 
 .order-confirm-message {

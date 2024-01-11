@@ -24,15 +24,6 @@ const Signup = ({ onSignUp }) => {
     // Call the onSignUp prop to handle user registration
     onSignUp({ first_name, last_name, username, email, password, birthday, gender, optIn });
 
-    // // Trigger Zeta tracking
-    // try {
-    //   // Use the globally defined bt function
-    //   window.bt('track', 'signed_up', { email, first_name, last_name, gender, birthday, username, password, optIn});
-    // } catch (error) {
-    //   console.error('Error tracking signed-up event:', error);
-    // }
-
-    // Call the Zeta tracking function with user data
     trackSignedUpEvent({
       email,
       name: `${first_name} ${last_name}`,
@@ -118,21 +109,20 @@ const Signup = ({ onSignUp }) => {
         </label>
         <br />
 
-        <div className='checkbox-opt-in-notice'>
-          <input
-            type='checkbox'
-            checked={optIn}
-            onChange={() => setOptIn(!optIn)}
-          />
-
-          <p> Opt-in to personalized emails about our fantastic TAPioca products. <br></br> <br></br>See our Privacy Policy for more details or to opt-out at any time. </p>
+        <div className='terms-and-conditions'>
+          <div className='checkbox-opt-in-notice'>
+            <input
+              type='checkbox'
+              checked={optIn}
+              onChange={() => setOptIn(!optIn)}
+            />
+            <p> Opt-in to personalized emails about our fantastic TAPioca products. </p>
+          </div>
+            <p>See our Privacy Policy for more details or to opt-out at any time. </p>  
         </div>
 
-        <br></br>
         <div className='submit-button'>
-          <button type="submit" id='submit-signup-button' >Sign Up</button>
-          
-          
+          <button type="submit" id='submit-signup-button'>Sign Up</button>
         </div>
       </form>
 

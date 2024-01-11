@@ -38,15 +38,17 @@ const CheckoutPage = ({ cart, setCart, user, setDiscountedTotal}) => {
 
   return (
     <div className='checkout-page'>
-       <h2 id='review-order'> Review Your TAPioca Order</h2>
-        <ul className='checkout-page-item-list'>
-          {cart.map((item) => (
-            <li key={item.id}>
-              <img id='cart-image-icon' src={item.image}></img> {item.name}- £{(item.price * item.quantity).toFixed(2)} [
-              {item.quantity} {item.quantity > 1 ? 'units' : 'unit'}]
-            </li>
-           ))}
-        </ul>
+      <div className='checkout-product'>
+        <h2 id='review-order'> Review Your TAPioca Order</h2>
+          <ul className='checkout-page-item-list'>
+            {cart.map((item) => (
+              <li key={item.id}>
+                <img id='cart-image-icon' src={item.image}></img> {item.name}- £{(item.price * item.quantity).toFixed(2)} [
+                {item.quantity} {item.quantity > 1 ? 'units' : 'unit'}]
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <h3 id='checkout-total-cost'> Total Cost: £{cartTotal.toFixed(2)} </h3>
 
